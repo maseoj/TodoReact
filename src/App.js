@@ -1,12 +1,13 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, {  useRef, useEffect } from 'react';
 import TodoList from './TodoList'
 import { v4 as uuidv4 } from 'uuid';
+import useLocalStorage from './hooks/useLocalStorage';
 
 
 const LOCAL_STORAGE_KEY = 'todoApp.todos'
 
 function App(){
- const [todos, setTodos]= useState([])
+ const [todos, setTodos]= useLocalStorage("todos",[])
  const todoNameRef = useRef()
 
 useEffect(()=> {
